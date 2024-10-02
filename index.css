@@ -1,11 +1,17 @@
 .flex-centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.full-viewport {
-width: 100vw;
-height: 100vh;
-box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+.title-container {
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  padding: 20%;
+}
+
+.font-size {
+  font-size: 4vmin;
 }
