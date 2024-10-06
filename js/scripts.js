@@ -62,22 +62,29 @@ function manageLaguageChangeEvents() {
   });
 }
 
-function setTextsByLanguage(language) {
-  setMainSectionText(language);
-  setNavBarText(language);
+function setTextsByLanguage(lang) {
+  setMainSectionText(lang);
+  setNavBarText(lang);
 }
 
-function setMainSectionText(language) {
-  const sutTitle = conteudo_principal.sobre_titulo_principal[language];
+function setMainSectionText(lang) {
+  const sutTitle = conteudo_principal.sobre_titulo_principal[lang];
 
-  document.getElementById("sobre_titulo_principal").innerText = sutTitle;
+  translate("sobre_titulo_principal", sutTitle);
 
-  const title = conteudo_principal.titulo_principal[language];
+  const title = conteudo_principal.titulo_principal[lang];
 
-  document.getElementById("titulo_principal").innerText = title;
+  translate("titulo_principal", title);
 }
 
-function setNavBarText(language) {
-  document.getElementById("language_dropdown").innerText =
-    language.toUpperCase();
+function setNavBarText(lang) {
+  translate("language_dropdown", lang.toUpperCase());
+  translate("nav-organisation", titulos_navbar.organisation[lang]);
+  translate("nav-projects", titulos_navbar.projects[lang]);
+  translate("nav-services", titulos_navbar.services[lang]);
+  translate("nav-contacts", titulos_navbar.contacts[lang]);
+}
+
+function translate(id, value) {
+  document.getElementById(id).innerText = value;
 }
