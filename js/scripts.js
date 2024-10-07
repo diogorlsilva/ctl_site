@@ -43,28 +43,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   // Set texts based on language
-  manageLaguageChangeEvents();
-
   const language = window.localStorage.getItem("language") ?? defaultLanguage;
 
-  setTextsByLanguage(language);
+  changeLanguage(language);
 });
 
-function manageLaguageChangeEvents() {
-  document.getElementById("dropdown-pt").addEventListener("click", () => {
-    setTextsByLanguage("pt");
-    window.localStorage.setItem("language", "pt");
-  });
-
-  document.getElementById("dropdown-en").addEventListener("click", () => {
-    setTextsByLanguage("en");
-    window.localStorage.setItem("language", "en");
-  });
-}
-
-function setTextsByLanguage(lang) {
+function changeLanguage(lang) {
   setMainSectionText(lang);
   setNavBarText(lang);
+
+  window.localStorage.setItem("language", lang);
 }
 
 function setMainSectionText(lang) {
