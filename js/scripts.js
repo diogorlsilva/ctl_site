@@ -50,24 +50,24 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Set texts based on language
   const language = window.localStorage.getItem("language") ?? defaultLanguage;
 
+  addPeopleElements(language);
   changeLanguage(language);
 });
 
 function changeLanguage(lang) {
   setMainSectionText(lang);
   setNavBarText(lang);
+  setPeopleSectionText(lang);
 
   window.localStorage.setItem("language", lang);
 }
 
 function setMainSectionText(lang) {
-  const sutTitle = conteudo_principal.sobre_titulo_principal[lang];
-
-  translate("sobre_titulo_principal", sutTitle);
-
-  const title = conteudo_principal.titulo_principal[lang];
-
-  translate("titulo_principal", title);
+  translate(
+    "sobre_titulo_principal",
+    conteudo_principal.sobre_titulo_principal[lang]
+  );
+  translate("titulo_principal", conteudo_principal.titulo_principal[lang]);
 }
 
 function setNavBarText(lang) {
@@ -76,6 +76,18 @@ function setNavBarText(lang) {
   translate("nav-projects", titulos_navbar.projects[lang]);
   translate("nav-services", titulos_navbar.services[lang]);
   translate("nav-contacts", titulos_navbar.contacts[lang]);
+}
+
+function setPeopleSectionText(lang) {
+  translate("section_people_title", conteudo_pessoas.titulo_principal[lang]);
+  translate(
+    "section_people_subtitle",
+    conteudo_pessoas.subtitulo_principal[lang]
+  );
+
+  pessoas.forEach((person, index) =>
+    translate(`person-title-${index}`, person.titulo[lang])
+  );
 }
 
 function translate(id, value) {
