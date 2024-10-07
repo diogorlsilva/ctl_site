@@ -35,8 +35,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document.querySelectorAll("#navbarResponsive .nav-link")
   );
   responsiveNavItems.map(function (responsiveNavItem) {
-    responsiveNavItem.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
+    responsiveNavItem.addEventListener("click", (event) => {
+      const isLangDropdown = event.target.id === "language_dropdown";
+
+      if (
+        window.getComputedStyle(navbarToggler).display !== "none" &&
+        !isLangDropdown
+      ) {
         navbarToggler.click();
       }
     });
