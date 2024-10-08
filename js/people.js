@@ -6,6 +6,7 @@ function createPersonElement(person, lang, index) {
   p.id = `person-title-${index}`;
 
   img.src = `conteudo/fotos_pessoas/${person.nome_foto}`;
+  img.alt = person.nome;
   h4.innerText = person.nome;
   p.innerText = person.titulo[lang];
 
