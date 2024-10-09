@@ -11,6 +11,7 @@ function createProjectElement(project, lang, index) {
   img.alt = project.titulo[lang];
   img.classList.add("img-fluid");
   img.src = `conteudo/fotos_projetos/projeto_${index}/foto_${index}.jpg`;
+  img.onerror = () => (img.src = "assets/img/no-image.jpg");
 
   const projectHoverDiv = document.createElement("div");
   projectHoverDiv.classList.add("project-hover");

@@ -30,4 +30,14 @@ const projetos = [
       en: "CTL's ofering Musical Hugs",
     },
   },
+  {
+    titulo: {
+      pt: "So(u)mos + com Abraços Musicais",
+      en: "So(u)mos + com Abraços Musicais",
+    },
+    subtitulo: {
+      pt: "Projeto distinguido pelos Prémios BPI “la Caixa” Infância 2019",
+      en: "Project distinguished by the BPI “la Caixa” Infância 2019",
+    },
+  },
 ];
