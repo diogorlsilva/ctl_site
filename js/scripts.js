@@ -102,6 +102,8 @@ function setProjectsSectionText(lang) {
   projetos.forEach((project, index) => {
     translate(`project-title-${index + 1}`, project.titulo[lang]);
     translate(`project-subtitle-${index + 1}`, project.subtitulo[lang]);
+    translate(`project-modal-title-${index + 1}`, project.titulo[lang]);
+    translate(`project-modal-subtitle-${index + 1}`, project.subtitulo[lang]);
   });
 }
 
