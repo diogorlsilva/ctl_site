@@ -40,4 +40,14 @@ const projetos = [
       en: "Project distinguished by the BPI “la Caixa” Infância 2019",
     },
   },
+  {
+    titulo: {
+      pt: "So(u)mos Cidadania",
+      en: "So(u)mos Cidadania",
+    },
+    subtitulo: {
+      pt: "Projeto distinguido pelo Município de Coimbra",
+      en: "Project distinguished by the Municipality of Coimbra",
+    },
+  },
 ];

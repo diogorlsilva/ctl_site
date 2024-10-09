@@ -10,7 +10,7 @@ function createProjectElement(project, lang, index) {
   const img = document.createElement("img");
   img.alt = project.titulo[lang];
   img.classList.add("img-fluid");
-  img.src = `conteudo/fotos_projetos/projeto_${index}/foto_${index}.jpg`;
+  img.src = `conteudo/projetos/fotos_projeto_${index}/foto_1.jpg`;
   img.onerror = () => (img.src = "assets/img/no-image.jpg");
 
   const projectHoverDiv = document.createElement("div");
