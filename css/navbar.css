@@ -12,7 +12,7 @@
 }
 
 #mainNav .navbar-brand img {
-  height: 4rem;
+  height: 2rem;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   font-size: 0.95rem;
@@ -50,7 +50,7 @@
   }
   #mainNav.navbar-shrink .navbar-brand svg,
   #mainNav.navbar-shrink .navbar-brand img {
-    height: 4rem;
+    height: 2rem;
   }
   #mainNav .navbar-nav .nav-item {
     margin-right: 1rem;
