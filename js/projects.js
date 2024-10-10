@@ -10,7 +10,11 @@ function createProjectElement(project, lang, index) {
   const img = document.createElement("img");
   img.alt = project.titulo[lang];
   img.classList.add("img-fluid");
-  img.src = `conteudo/projetos/fotos_projeto_${index}/foto_1.jpg`;
+
+  img.src =
+    project.numero_de_fotos > 0
+      ? `conteudo/projetos/fotos_projeto_${index}/foto_1.jpg`
+      : "assets/img/no-image.jpg";
   img.onerror = () => (img.src = "assets/img/no-image.jpg");
 
   const projectHoverDiv = document.createElement("div");
@@ -67,10 +71,34 @@ function createProjectModalElement(project, lang, index) {
   projectSubtitleP.id = `project-modal-subtitle-${index}`;
   projectSubtitleP.innerText = project.subtitulo[lang];
 
-  const img = getEl("img", "img-fluid", "d-block", "mx-auto");
-  img.alt = project.titulo[lang];
-  img.src = `conteudo/projetos/fotos_projeto_${index}/foto_1.jpg`;
-  img.onerror = () => (img.src = "assets/img/no-image.jpg");
+  const carouselInner = getEl("div", "carousel-inner");
+
+  for (let i = 1; i <= project.numero_de_fotos; i++) {
+    const img = getEl("img", "img-fluid", "d-block", "mx-auto");
+    img.alt = `foto ${1}`;
+    img.src = `conteudo/projetos/fotos_projeto_${index}/foto_${i}.jpg`;
+    img.onerror = () => (img.src = "assets/img/no-image.jpg");
+
+    const carouselItem = getEl("div", "carousel-item");
+
+    if (i === 1) {
+      carouselItem.classList.add("active");
+    }
+
+    carouselItem.appendChild(img);
+    carouselInner.appendChild(carouselItem);
+  }
+
+  const carouselSlide = getEl("div", "carousel", "slide");
+  carouselSlide.id = `carousel-slide-${index}`;
+  carouselSlide.setAttribute("data-bs-ride", "carousel");
+
+  const prev = getCarouselOption("prev", index);
+  const next = getCarouselOption("next", index);
+
+  carouselSlide.appendChild(carouselInner);
+  carouselSlide.appendChild(prev);
+  carouselSlide.appendChild(next);
 
   const descriptionP = getEl("p");
   descriptionP.innerText = project.descricao;
@@ -79,7 +107,11 @@ function createProjectModalElement(project, lang, index) {
 
   modalBodyDiv.appendChild(projectTitleH2);
   modalBodyDiv.appendChild(projectSubtitleP);
-  modalBodyDiv.appendChild(img);
+
+  if (project.numero_de_fotos > 0) {
+    modalBodyDiv.appendChild(carouselSlide);
+  }
+
   modalBodyDiv.appendChild(descriptionP);
 
   const colLg8Div = getEl("div", "col-lg-8");
@@ -141,4 +173,18 @@ function getEl(name, ...classes) {
   element.classList.add(...classes);
 
   return element;
+}
+
+function getCarouselOption(direction, index) {
+  const span = getEl("span", `carousel-control-${direction}-icon`);
+  span.setAttribute("aria-hidden", true);
+
+  const a = getEl("a", `carousel-control-${direction}`);
+  a.href = `#carousel-slide-${index}`;
+  a.role = "button";
+  a.setAttribute("data-bs-slide", direction);
+
+  a.appendChild(span);
+
+  return a;
 }

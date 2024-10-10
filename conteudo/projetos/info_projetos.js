@@ -11,6 +11,7 @@ const conteudo_projetos = {
 
 const projetos = [
   {
+    numero_de_fotos: 3,
     titulo: {
       pt: "O CTL vai ao JI",
       en: "CTL goes to Kindergarten",
@@ -23,6 +24,7 @@ const projetos = [
       "O “CTL vai ao JI” é um projeto no qual os técnicos/professores do Clube de Tempos Livres de Santa Clara vão ao Jardim de Infância e lecionam as atividades de Expressão Musical, Expressão Físico-Motora e ensino do Inglês.",
   },
   {
+    numero_de_fotos: 3,
     titulo: {
       pt: "Abraços musicais",
       en: "Musical Hugs",
@@ -35,6 +37,7 @@ const projetos = [
       "Abraços Musicais é um projeto educativo, cultural, social e intergeracional das Oficinas de Música do Clube de Tempos Livres de Santa Clara. O principal objetivo consiste em os nossos alunos contactarem com outras realidades sociais, assim como com outras faixas etárias, transformando esta ocasião em momentos simbólicos através de partilhas de afetos e de música.",
   },
   {
+    numero_de_fotos: 0,
     titulo: {
       pt: "So(u)mos + com Abraços Musicais",
       en: "So(u)mos + com Abraços Musicais",
@@ -47,6 +50,7 @@ const projetos = [
       'O projeto So(u)mos+ com "Abraços Musicais" é um Projeto do Clube de Tempos Livres de Santa Clara, distinguido e financiado pelos Prémios BPI “la Caixa” Infância 2019. É inspirado no projeto "Orquestra Geração", dinamizado em Portugal com o apoio da Fundação Calouste Gulbenkian e no projeto "Abraços Musicais", da própria Instituição.',
   },
   {
+    numero_de_fotos: 4,
     titulo: {
       pt: "So(u)mos Cidadania",
       en: "So(u)mos Cidadania",
