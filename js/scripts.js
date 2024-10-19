@@ -110,3 +110,15 @@ function setProjectsSectionText(lang) {
 function translate(id, value) {
   document.getElementById(id).innerText = value;
 }
+
+function getEl(name, ...classes) {
+  const element = document.createElement(name);
+
+  if (classes.length === 0) {
+    return element;
+  }
+
+  element.classList.add(...classes);
+
+  return element;
+}
