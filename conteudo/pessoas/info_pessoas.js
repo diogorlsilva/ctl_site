@@ -19,6 +19,7 @@ const pessoas = [
       pt: "Diretor Financeiro",
       en: "Financial Director",
     },
+    biografia: "Preencher com uma linda biografia",
   },
 
   {
@@ -28,6 +29,7 @@ const pessoas = [
       pt: "Diretora Pedagógica",
       en: "Pedagogic Director",
     },
+    biografia: "Preencher com uma linda biografia",
   },
 
   {
@@ -37,5 +39,6 @@ const pessoas = [
       pt: "Lider de Equipa",
       en: "Team Leader",
     },
+    biografia: "Preencher com uma linda biografia",
   },
 ];

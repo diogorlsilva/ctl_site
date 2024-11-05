@@ -92,7 +92,7 @@ function getCarouselOption(direction, index) {
   span.setAttribute("aria-hidden", true);
 
   const a = getEl("a", `carousel-control-${direction}`);
-  a.href = `#carousel-slide-${index}`;
+  a.href = `#project-carousel-slide-${index}`;
   a.role = "button";
   a.setAttribute("data-bs-slide", direction);
 

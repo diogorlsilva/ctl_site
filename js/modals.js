@@ -6,11 +6,12 @@ function createModalElement(
   subtitle,
   description,
   photoCount,
-  imgFolderSrc
+  imgFolderSrc,
+  isSinglePhoto
 ) {
   const titleH2 = getEl("h2", "text-uppercase");
   titleH2.id = `${code}-modal-title-${index}`;
-  titleH2.innerText = title[lang];
+  titleH2.innerText = title[lang] ?? title;
 
   const subtitleP = getEl("p", "item-intro", "text-muted");
   subtitleP.id = `${code}-modal-subtitle-${index}`;
@@ -18,32 +19,47 @@ function createModalElement(
 
   const carouselInner = getEl("div", "carousel-inner");
 
-  for (let i = 1; i <= photoCount; i++) {
+  if (isSinglePhoto) {
     const img = getEl("img", "img-fluid", "d-block", "mx-auto");
-    img.alt = `foto ${1}`;
-    img.src = `${imgFolderSrc}/foto_${i}.jpg`;
+    img.alt = `${title}`;
+    img.src = `${imgFolderSrc}`;
     img.onerror = () => (img.src = "assets/img/no-image.jpg");
 
     const carouselItem = getEl("div", "carousel-item");
-
-    if (i === 1) {
-      carouselItem.classList.add("active");
-    }
-
+    carouselItem.classList.add("active");
     carouselItem.appendChild(img);
     carouselInner.appendChild(carouselItem);
+  } else {
+    for (let i = 1; i <= photoCount; i++) {
+      const img = getEl("img", "img-fluid", "d-block", "mx-auto");
+      img.alt = `foto ${1}`;
+      img.src = `${imgFolderSrc}/foto_${i}.jpg`;
+      img.onerror = () => (img.src = "assets/img/no-image.jpg");
+
+      const carouselItem = getEl("div", "carousel-item");
+
+      if (i === 1) {
+        carouselItem.classList.add("active");
+      }
+
+      carouselItem.appendChild(img);
+      carouselInner.appendChild(carouselItem);
+    }
   }
 
   const carouselSlide = getEl("div", "carousel", "slide");
-  carouselSlide.id = `carousel-slide-${index}`;
+  carouselSlide.id = `${code}-carousel-slide-${index}`;
   carouselSlide.setAttribute("data-bs-ride", "carousel");
 
-  const prev = getCarouselOption("prev", index);
-  const next = getCarouselOption("next", index);
-
   carouselSlide.appendChild(carouselInner);
-  carouselSlide.appendChild(prev);
-  carouselSlide.appendChild(next);
+
+  if (!isSinglePhoto && photoCount > 1) {
+    const prev = getCarouselOption("prev", index);
+    const next = getCarouselOption("next", index);
+
+    carouselSlide.appendChild(prev);
+    carouselSlide.appendChild(next);
+  }
 
   const descriptionP = getEl("p");
   descriptionP.innerText = description;

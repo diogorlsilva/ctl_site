@@ -17,7 +17,13 @@ function createPersonElement(person, lang, index) {
   const teamMemberDiv = document.createElement("div");
   teamMemberDiv.classList.add("team-member");
 
-  teamMemberDiv.appendChild(img);
+  const a = document.createElement("a");
+  a.setAttribute("data-bs-toggle", "modal");
+  a.href = `#personModal${index + 1}`;
+
+  a.appendChild(img);
+
+  teamMemberDiv.appendChild(a);
   teamMemberDiv.appendChild(h4);
   teamMemberDiv.appendChild(p);
 
@@ -31,10 +37,25 @@ function createPersonElement(person, lang, index) {
 
 function addPeopleElements(lang) {
   const row = document.getElementById("people_row");
+  const body = document.getElementById("topo");
 
   pessoas.forEach((person, i) => {
     const personElement = createPersonElement(person, lang, i);
 
     row.appendChild(personElement);
+
+    const dialog = createModalElement(
+      "person",
+      lang,
+      i + 1,
+      person.nome,
+      person.titulo,
+      person.biografia,
+      1,
+      `conteudo/pessoas/fotos/${person.nome_foto}`,
+      true
+    );
+
+    body.appendChild(dialog);
   });
 }
